@@ -1,0 +1,23 @@
+﻿{
+    "development": {
+        "username": "postgress",
+        "password": "Loqui900!",
+        "database": "Iee_San_Jose",
+        "host": "database-1.cxjcry7nttdw.us-east-1.rds.amazonaws.com",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "postgress",
+        "password": "Loqui900!",
+        "database": "Iee_San_Jose",
+        "host": "database-1.cxjcry7nttdw.us-east-1.rds.amazonaws.com",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "postgress",
+        "password": "Loqui900!",
+        "database": "Iee_San_Jose",
+        "host": "database-1.cxjcry7nttdw.us-east-1.rds.amazonaws.com",
+        "dialect": "postgres"
+    }
+}
