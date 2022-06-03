@@ -1,5 +1,4 @@
 const models = require('../models');
-const identity_document = require('../models/identity_document');
 const createIdentity_document = async (req, res) => {
     try {
       await models.identity_document.create(req.body);

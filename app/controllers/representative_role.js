@@ -1,5 +1,4 @@
 const models = require('../models');
-const representative_role = require('../models/representative_role');
 const createRepresentative_role = async (req, res) => {
     try {
       await models.representative_role.create(req.body);

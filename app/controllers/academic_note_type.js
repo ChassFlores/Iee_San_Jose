@@ -1,7 +1,7 @@
 const models = require('../models');
 const createAcademic_note_type = async (req, res) => {
     try {
-      await models.Academic_note_types.create(req.body);
+      await models.academic_note_type.create(req.body);
       return res.status(201).send('Created');
     } catch (error) {
       return res.status(500).json({ error: error.message });
@@ -9,10 +9,10 @@ const createAcademic_note_type = async (req, res) => {
   };
   const getAllAcademic_note_types = async (req, res) => {
     try {
-      const Academic_note_types = await models.Academic_note_types.findAll();
-      return res.status(200).json({
-        info: data.paginate,
-      });
+      const Academic_note_types = await models.academic_note_type.findAll();
+        return res.status(200).json({
+          Academic_note_types
+        });
     } catch (error) {
       return res.status(500).send(error.message);
     }
@@ -21,11 +21,11 @@ const createAcademic_note_type = async (req, res) => {
   const getAcademic_note_typeById = async (req, res) => {
     try {
       const { id } = req.params;
-      const Academic_note_type = await models.Academic_note_types.findOne({
+      const Academic_note_type = await models.academic_note_type.findOne({
         where: { ant_id: id },
       });
       if (Academic_note_type) {
-        return res.status(200).json({ data: id });
+        return res.status(200).json({ Academic_note_type });
       }
       return res.status(404).send('The specified ID does not exists');
     } catch (error) {
@@ -36,8 +36,8 @@ const createAcademic_note_type = async (req, res) => {
   const updateAcademic_note_type = async (req, res) => {
     try {
       const { id } = req.params;
-      const [updated] = await models.Academic_note_types.update(req.body, {
-        where: { Academic_note_type_id: id },
+      const [updated] = await models.academic_note_type.update(req.body, {
+        where: { ant_id: id },
       });
       if (updated) {
         return res.status(200).send('Updated');
@@ -51,8 +51,8 @@ const createAcademic_note_type = async (req, res) => {
   const deleteAcademic_note_type = async (req, res) => {
     try {
       const { id } = req.params;
-      const deleted = await models.Academic_notes.destroy({
-          where: {Academic_note_type_id: id},
+      const deleted = await models.academic_note_type.destroy({
+          where: {ant_id: id},
       });
       if (deleted) {
         return res.status(204).send('Deleted');

@@ -11,14 +11,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    crs_fl_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'formation_level',
-        key: 'fl_id'
-      }
-    },
     crs_tch_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

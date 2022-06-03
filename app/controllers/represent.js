@@ -1,31 +1,31 @@
 const models = require('../models');
-const createBasic_service = async (req, res) => {
+const createRepresent = async (req, res) => {
     try {
-      await models.basic_service.create(req.body);
+      await models.represent.create(req.body);
       return res.status(201).send('Created');
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
   };
-  const getAllBasic_services = async (req, res) => {
+  const getAllRepresents = async (req, res) => {
     try {
-      const Basic_services = await models.basic_service.findAll();
+      const Represents = await models.represent.findAll();
         return res.status(200).json({
-          Basic_services
+          Represents
         });
     } catch (error) {
       return res.status(500).send(error.message);
     }
   };
   
-  const getBasic_serviceById = async (req, res) => {
+  const getRepresentById = async (req, res) => {
     try {
       const { id } = req.params;
-      const Basic_service = await models.basic_service.findOne({
-        where: { bs_id: id },
+      const Represent = await models.represent.findOne({
+        where: { representative_rps_id: id },
       });
-      if (Basic_service) {
-        return res.status(200).json({ Basic_service });
+      if (Represent) {
+        return res.status(200).json({ Represent });
       }
       return res.status(404).send('The specified ID does not exists');
     } catch (error) {
@@ -33,11 +33,11 @@ const createBasic_service = async (req, res) => {
     }
   };
   
-  const updateBasic_service = async (req, res) => {
+  const updateRepresent = async (req, res) => {
     try {
       const { id } = req.params;
-      const [updated] = await models.basic_service.update(req.body, {
-        where: { bs_id: id },
+      const [updated] = await models.represent.update(req.body, {
+        where: { representative_rps_id: id },
       });
       if (updated) {
         return res.status(200).send('Updated');
@@ -48,11 +48,11 @@ const createBasic_service = async (req, res) => {
     }
   };
   
-  const deleteBasic_service = async (req, res) => {
+  const deleteRepresent = async (req, res) => {
     try {
       const { id } = req.params;
-      const deleted = await models.basic_service.destroy({
-          where: {bs_id: id},
+      const deleted = await models.represent.destroy({
+          where: {representative_rps_id: id},
       });
       if (deleted) {
         return res.status(204).send('Deleted');
@@ -63,9 +63,9 @@ const createBasic_service = async (req, res) => {
     }
   };
   module.exports = {
-    createBasic_service,
-    getAllBasic_services,
-    getBasic_serviceById,
-    updateBasic_service,
-    deleteBasic_service,
+    createRepresent,
+    getAllRepresents,
+    getRepresentById,
+    updateRepresent,
+    deleteRepresent,
   };

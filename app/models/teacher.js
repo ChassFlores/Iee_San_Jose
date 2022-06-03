@@ -18,6 +18,30 @@ module.exports = function(sequelize, DataTypes) {
         model: 'formation_level',
         key: 'fl_id'
       }
+    },
+    tcr_name: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
+    tcr_lastname: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
+    tcr_birthdate: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+    tcr_address: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
+    tcr_phone: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
+    tcr_email: {
+      type: DataTypes.STRING(100),
+      allowNull: false
     }
   }, {
     sequelize,

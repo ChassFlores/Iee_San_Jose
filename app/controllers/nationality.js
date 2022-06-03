@@ -1,5 +1,4 @@
 const models = require('../models');
-const nationality = require('../models/nationality');
 const createNationality = async (req, res) => {
     try {
       await models.nationality.create(req.body);

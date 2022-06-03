@@ -10,7 +10,6 @@ var _grade = require("./grade");
 var _identity_document = require("./identity_document");
 var _institution_type = require("./institution_type");
 var _nationality = require("./nationality");
-var _quota = require("./quota");
 var _represent = require("./represent");
 var _representative = require("./representative");
 var _representative_role = require("./representative_role");
@@ -31,7 +30,6 @@ function initModels(sequelize) {
   var identity_document = _identity_document(sequelize, DataTypes);
   var institution_type = _institution_type(sequelize, DataTypes);
   var nationality = _nationality(sequelize, DataTypes);
-  var quota = _quota(sequelize, DataTypes);
   var represent = _represent(sequelize, DataTypes);
   var representative = _representative(sequelize, DataTypes);
   var representative_role = _representative_role(sequelize, DataTypes);
@@ -70,8 +68,6 @@ function initModels(sequelize) {
   student.hasMany(course, { as: "courses", foreignKey: "crs_std_id"});
   grade.belongsTo(student, { as: "grd_std", foreignKey: "grd_std_id"});
   student.hasOne(grade, { as: "grade", foreignKey: "grd_std_id"});
-  quota.belongsTo(student, { as: "qta_std", foreignKey: "qta_std_id"});
-  student.hasMany(quota, { as: "quota", foreignKey: "qta_std_id"});
   represent.belongsTo(student, { as: "student_std", foreignKey: "student_std_id"});
   student.hasMany(represent, { as: "represents", foreignKey: "student_std_id"});
   course.belongsTo(subject, { as: "crs_sub", foreignKey: "crs_sub_id"});
@@ -95,7 +91,6 @@ function initModels(sequelize) {
     identity_document,
     institution_type,
     nationality,
-    quota,
     represent,
     representative,
     representative_role,

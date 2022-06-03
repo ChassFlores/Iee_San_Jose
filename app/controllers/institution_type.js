@@ -1,5 +1,4 @@
 const models = require('../models');
-const institution_type = require('../models/institution_type');
 const createInstitution_type = async (req, res) => {
     try {
       await models.institution_type.create(req.body);
